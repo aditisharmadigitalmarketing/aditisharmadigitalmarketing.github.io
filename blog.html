@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Aditi Sharma Digital Marketing Specialist</title>
+<meta name="description" content="Articles and notes from Aditi Sharma on SEO, content strategy, paid advertising, and social media marketing.">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">Aditi <span>Sharma</span></a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog.html" aria-current="page">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero" style="padding-bottom: 20px;">
+    <div class="wrap" style="grid-template-columns: 1fr; max-width: 780px;">
+      <p class="eyebrow">The Blog</p>
+      <h1>Notes on marketing that actually works</h1>
+      <p class="hero-lede">Short, practical articles on SEO, content, paid ads, and social media, written for business owners who want to understand their marketing, not just outsource it.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap" style="max-width: 780px;">
+      <div class="post-list">
+
+        <article class="post-card">
+          <div>
+            <p class="post-date">June 2026</p>
+          </div>
+          <div>
+            <span class="post-tag">SEO</span>
+            <h3>Five SEO Basics Most Small Business Websites Get Wrong</h3>
+            <p>A look at the common technical and content issues that quietly keep small business websites out of search results, and simple fixes for each one.</p>
+            <a href="#" class="read-more">Read the article</a>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div>
+            <p class="post-date">May 2026</p>
+          </div>
+          <div>
+            <span class="post-tag">Content Strategy</span>
+            <h3>How to Build a Content Calendar That You Will Actually Follow</h3>
+            <p>Most content calendars fail because they are too ambitious. Here is a simpler way to plan blog posts and social content around the time you really have.</p>
+            <a href="#" class="read-more">Read the article</a>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div>
+            <p class="post-date">April 2026</p>
+          </div>
+          <div>
+            <span class="post-tag">Paid Advertising</span>
+            <h3>Google Ads vs Meta Ads, Which One Should You Start With</h3>
+            <p>Both platforms work differently and suit different kinds of businesses. This article breaks down how to choose based on your product and budget.</p>
+            <a href="#" class="read-more">Read the article</a>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div>
+            <p class="post-date">March 2026</p>
+          </div>
+          <div>
+            <span class="post-tag">Social Media</span>
+            <h3>Why Posting More Often Is Not the Same as Growing Faster</h3>
+            <p>A common myth in social media marketing is that frequency alone drives growth. Here is what actually moves the needle instead.</p>
+            <a href="#" class="read-more">Read the article</a>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div>
+            <p class="post-date">February 2026</p>
+          </div>
+          <div>
+            <span class="post-tag">Email Marketing</span>
+            <h3>The Welcome Email Sequence Every New Business Should Have</h3>
+            <p>A simple three email welcome series that introduces your brand, builds trust, and gently guides new subscribers toward their first purchase.</p>
+            <a href="#" class="read-more">Read the article</a>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div>
+            <p class="post-date">January 2026</p>
+          </div>
+          <div>
+            <span class="post-tag">Analytics</span>
+            <h3>Three Marketing Metrics Worth Watching Every Month</h3>
+            <p>With so much data available, it is easy to get distracted. These are the few numbers that actually tell you if your marketing is working.</p>
+            <a href="#" class="read-more">Read the article</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>Have a topic you want covered?</h2>
+        <p>Send a message with questions or ideas and it might turn into a future article.</p>
+        <a href="contact.html" class="btn btn-primary" style="margin-top: 18px;">Suggest a topic</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <p class="footer-note">© 2026 Aditi Sharma. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+</script>
+
+</body>
+</html>
