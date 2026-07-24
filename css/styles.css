@@ -224,6 +224,13 @@ p{ margin: 0 0 1em; color: var(--ink-soft); }
   box-shadow: 0 20px 40px -24px rgba(55, 18, 79, 0.35);
 }
 
+.growth-chart img{
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: calc(var(--radius) - 4px);
+}
+
 .growth-chart figcaption{
   font-size: 0.8rem;
   color: var(--muted);
