@@ -325,6 +325,13 @@ section{ padding: 64px 0; }
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--primary-dark);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+a.pill:hover,
+a.pill:focus-visible{
+  background: var(--surface-alt);
+  border-color: var(--primary);
 }
 
 blockquote{
