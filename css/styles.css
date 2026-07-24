@@ -5,16 +5,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 :root{
-  --bg: #F6F7F3;
+  --bg: #F6F5F8;
   --surface: #FFFFFF;
-  --surface-alt: #EEF1EA;
-  --ink: #1F2A24;
-  --ink-soft: #4B5850;
-  --muted: #7C8981;
-  --primary: #1C6E5C;
-  --primary-dark: #124B3E;
+  --surface-alt: #EFE9F5;
+  --ink: #211C2A;
+  --ink-soft: #4E4657;
+  --muted: #837B8E;
+  --primary: #531c81;
+  --primary-dark: #37124F;
   --gold: #D9A441;
-  --line: #DDE3DA;
+  --line: #E1D9EA;
 
   --font-display: 'Fraunces', serif;
   --font-body: 'Manrope', sans-serif;
@@ -221,7 +221,7 @@ p{ margin: 0 0 1em; color: var(--ink-soft); }
   border-radius: var(--radius);
   padding: 20px;
   border: 1px solid var(--line);
-  box-shadow: 0 20px 40px -24px rgba(18, 75, 62, 0.35);
+  box-shadow: 0 20px 40px -24px rgba(55, 18, 79, 0.35);
 }
 
 .growth-chart figcaption{
@@ -505,7 +505,126 @@ blockquote{
   .cta-band{ padding: 36px 24px; margin: 0 16px; }
 }
 
+/* ---------------- Animation ---------------- */
+@keyframes fadeUp{
+  from{ opacity: 0; transform: translateY(22px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatY{
+  0%, 100%{ transform: translateY(0); }
+  50%{ transform: translateY(-8px); }
+}
+
+@keyframes bounceDown{
+  0%, 100%{ transform: translateY(0); opacity: 0.6; }
+  50%{ transform: translateY(8px); opacity: 1; }
+}
+
+@keyframes drawLine{
+  from{ stroke-dashoffset: 500; }
+  to{ stroke-dashoffset: 0; }
+}
+
+.hero-anim{
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.hero-anim.delay-1{ animation-delay: 0.12s; }
+.hero-anim.delay-2{ animation-delay: 0.24s; }
+.hero-anim.delay-3{ animation-delay: 0.36s; }
+.hero-anim.delay-4{ animation-delay: 0.48s; }
+
+.hero-figure{
+  animation: floatY 5s ease-in-out infinite;
+}
+
+.chart-line{
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: drawLine 1.6s ease forwards 0.5s;
+}
+
+.scroll-cue{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 48px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.scroll-cue svg{
+  animation: bounceDown 1.6s ease-in-out infinite;
+}
+
+.reveal{
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.in-view{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger.in-view .card,
+.reveal-stagger.in-view .post-card,
+.reveal-stagger.in-view .timeline-item{
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.reveal-stagger .card:nth-child(1),
+.reveal-stagger .post-card:nth-child(1),
+.reveal-stagger .timeline-item:nth-child(1){ animation-delay: 0.05s; }
+.reveal-stagger .card:nth-child(2),
+.reveal-stagger .post-card:nth-child(2),
+.reveal-stagger .timeline-item:nth-child(2){ animation-delay: 0.15s; }
+.reveal-stagger .card:nth-child(3),
+.reveal-stagger .post-card:nth-child(3),
+.reveal-stagger .timeline-item:nth-child(3){ animation-delay: 0.25s; }
+.reveal-stagger .card:nth-child(4),
+.reveal-stagger .post-card:nth-child(4){ animation-delay: 0.35s; }
+.reveal-stagger .card:nth-child(5),
+.reveal-stagger .post-card:nth-child(5){ animation-delay: 0.45s; }
+.reveal-stagger .card:nth-child(6),
+.reveal-stagger .post-card:nth-child(6){ animation-delay: 0.55s; }
+
+.reveal-stagger .card,
+.reveal-stagger .post-card,
+.reveal-stagger .timeline-item{
+  opacity: 0;
+}
+
+.reveal-stagger.in-view .card,
+.reveal-stagger.in-view .post-card,
+.reveal-stagger.in-view .timeline-item{
+  opacity: 1;
+}
+
+.card{
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 32px -20px rgba(55, 18, 79, 0.35);
+  border-color: var(--primary);
+}
+
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
   .btn{ transition: none; }
+  .hero-anim, .hero-figure, .chart-line, .scroll-cue svg, .reveal, .reveal-stagger .card, .reveal-stagger .post-card, .reveal-stagger .timeline-item{
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
