@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aditisharmadigitalmarketing.github.io/sitemap.xml

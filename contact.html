@@ -32,7 +32,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <div class="wrap contact-grid">
       <div>
         <h2>Contact Details</h2>
@@ -98,10 +98,10 @@
     </div>
   </section>
 
-  <section class="section-alt">
+  <section class="section-alt reveal">
     <div class="wrap" style="max-width: 780px;">
       <h2>Frequently Asked Questions</h2>
-      <div class="grid-2">
+      <div class="grid-2 reveal-stagger">
         <div class="card">
           <h3>What is the best way to reach you?</h3>
           <p>Email is the fastest way to start a conversation. Include a short summary of your business and what you are hoping to achieve.</p>
@@ -135,14 +135,7 @@
   </div>
 </footer>
 
-<script>
-  const toggle = document.getElementById('navToggle');
-  const links = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => {
-    const open = links.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open);
-  });
-</script>
+<script src="js/main.js"></script>
 
 </body>
 </html>

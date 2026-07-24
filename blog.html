@@ -32,9 +32,9 @@
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <div class="wrap" style="max-width: 780px;">
-      <div class="post-list">
+      <div class="post-list reveal-stagger">
 
         <article class="post-card">
           <div>
@@ -135,14 +135,7 @@
   </div>
 </footer>
 
-<script>
-  const toggle = document.getElementById('navToggle');
-  const links = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => {
-    const open = links.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open);
-  });
-</script>
+<script src="js/main.js"></script>
 
 </body>
 </html>
