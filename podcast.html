@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Podcast | Aditi Sharma Digital Marketing Specialist</title>
+<meta name="description" content="Listen to the Aditi Sharma Digital Marketing Specialist podcast, with episodes on SEO, content, paid advertising, and digital marketing strategy.">
+<meta name="keywords" content="Aditi Sharma, Aditi Sharma Digital Marketing Specialist, Aditi Sharma Digital Marketing Expert">
+<link rel="icon" type="image/jpeg" href="Aditi%20Sharma%20Digital%20Marketing%20Specialist.jpeg">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">Aditi <span>Sharma</span></a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="podcast.html" aria-current="page">Podcast</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero" style="padding-bottom: 20px;">
+    <div class="wrap" style="grid-template-columns: 1fr; max-width: 780px;">
+      <p class="eyebrow">The Podcast</p>
+      <h1>Aditi Sharma Digital Marketing Specialist Podcast</h1>
+      <p class="hero-lede">Conversations and short episodes on SEO, content, paid advertising, and digital marketing strategy. New episodes appear here automatically whenever a new one is published on Spreaker.</p>
+      <div class="hero-actions" style="margin-top: 20px;">
+        <a href="https://www.spreaker.com/podcast/aditi-sharma-digital-marketing-specialist--7137764" class="btn btn-primary" target="_blank" rel="noopener">Listen on Spreaker</a>
+        <a href="contact.html" class="btn btn-outline">Suggest a topic</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="wrap" style="max-width: 780px;">
+      <div class="section-head">
+        <p class="eyebrow">Episodes</p>
+        <h2>Latest episodes</h2>
+      </div>
+      <div id="podcast-status" class="footer-note" style="margin-bottom: 18px;"></div>
+      <div id="podcast-list" class="post-list"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <p class="footer-note">© 2026 Aditi Sharma. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="podcast.html">Podcast</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function formatDate(dateStr) {
+    if (!dateStr) return '';
+    var d = new Date(dateStr.replace(' ', 'T') + 'Z');
+    if (isNaN(d.getTime())) return dateStr;
+    return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+  }
+
+  fetch('podcast-episodes.json?t=' + Date.now())
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      var listEl = document.getElementById('podcast-list');
+      var statusEl = document.getElementById('podcast-status');
+      var episodes = (data && data.episodes) || [];
+
+      if (data && data.updated_at) {
+        statusEl.textContent = 'Last synced: ' + formatDate(data.updated_at);
+      }
+
+      if (!episodes.length) {
+        listEl.innerHTML = '<p>No episodes published yet. Check back soon, or listen live on <a href="https://www.spreaker.com/podcast/aditi-sharma-digital-marketing-specialist--7137764" target="_blank" rel="noopener">Spreaker</a>.</p>';
+        return;
+      }
+
+      listEl.innerHTML = episodes.map(function (ep) {
+        return '' +
+          '<article class="post-card">' +
+            '<div>' +
+              '<p class="post-date">' + formatDate(ep.published_at) + '</p>' +
+            '</div>' +
+            '<div>' +
+              '<h3>' + escapeHtml(ep.title) + '</h3>' +
+              '<p>' + escapeHtml(ep.description) + '</p>' +
+              '<a href="' + escapeHtml(ep.site_url) + '" class="read-more" target="_blank" rel="noopener">Listen to this episode</a>' +
+            '</div>' +
+          '</article>';
+      }).join('');
+    })
+    .catch(function () {
+      document.getElementById('podcast-list').innerHTML = '<p>Episodes could not be loaded right now. Listen directly on <a href="https://www.spreaker.com/podcast/aditi-sharma-digital-marketing-specialist--7137764" target="_blank" rel="noopener">Spreaker</a>.</p>';
+    });
+</script>
+
+</body>
+</html>
